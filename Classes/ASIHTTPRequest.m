@@ -43,10 +43,10 @@ static NSRecursiveLock *sessionCredentialsLock = nil;
 static NSMutableArray *sessionCookies = nil;
 
 // The number of times we will allow requests to redirect before we fail with a redirection error
-const int RedirectionLimit = 5;
+const int RedirectionLimit = 500;
 
 // The default number of seconds to use for a timeout
-static NSTimeInterval defaultTimeOutSeconds = 10;
+static NSTimeInterval defaultTimeOutSeconds = 1000;
 
 static void ReadStreamClientCallBack(CFReadStreamRef readStream, CFStreamEventType type, void *clientCallBackInfo) {
     [((ASIHTTPRequest*)clientCallBackInfo) handleNetworkEvent: type];
